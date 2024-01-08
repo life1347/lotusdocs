@@ -83,7 +83,8 @@
                     outline: none;
                 }
                 svg {
-                    height: 26px;
+                    max-width: 130px;
+                    height: 30px;
                 }
             }
             #close-sidebar {
@@ -376,6 +377,7 @@
                             display: block;
                         }
                         svg {
+                            width: 22px;
                             height: 22px;
                         }
                     }
@@ -389,6 +391,10 @@
                         }
                         @media (min-width: 768px) and (max-width: 1024px) {
                             display: block;
+                        }
+                        svg {
+                            max-width: 130px;
+                            height: 30px;
                         }
                     }
                 }
