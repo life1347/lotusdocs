@@ -21,11 +21,11 @@
   {{ $etag := print "</h" $hlen ">" }}
   {{ print $stag | safeHTML }}
     {{ $hval }}
-    <a href="#{{ $hid }}" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a>
     {{ range $s := $params }}
       {{ $badge := (strings.Split $s ",") }}
       <span class="badge bg-default fs-6 mb-1 align-middle {{ index $badge 1 }}" ><span>{{ index $badge 0 }}</span></span>
     {{ end }}
+    <a href="#{{ $hid }}" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a>
   {{ print $etag  | safeHTML}}
 {{ end }}
 
