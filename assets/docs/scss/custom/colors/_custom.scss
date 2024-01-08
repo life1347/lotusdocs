@@ -1,0 +1,17 @@
+// custom
+:root {
+    --primary: var(--custom);
+    --primary-50: var(--custom-50);
+    --primary-100: var(--custom-100);
+    --primary-200: var(--custom-200);
+    --primary-300: var(--custom-300);
+    --primary-400: var(--custom-400);
+    --primary-800: var(--custom-800);
+
+    --primary-hsl: var(--custom-500-hsl);
+    --primary-50-hsl: var(--custom-50-hsl);
+    --primary-100-hsl: var(--custom-100-hsl);
+    --primary-200-hsl: var(--custom-200-hsl);
+    --primary-300-hsl: var(--custom-300-hsl);
+    --primary-800-hsl: var(--custom-800-hsl);
+}

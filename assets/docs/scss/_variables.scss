@@ -97,6 +97,17 @@ $btn-link-hover-color:        var(--#{$prefix}link-hover-color);
     --emerald-100-hsl: 149, 89%, 82%;
     --emerald-50-hsl: 145, 100%, 94%;
 
+    --custom-900-hsl: 207, 63%, 38%;
+    --custom-800-hsl: 207, 63%, 39%;
+    --custom-700-hsl: 207, 59%, 40%;
+    --custom-600-hsl: 207, 57%, 41%;
+    --custom-500-hsl: 192, 49%, 40%;
+    --custom-400-hsl: 207, 53%, 43%;
+    --custom-300-hsl: 207, 50%, 45%;
+    --custom-200-hsl: 207, 45%, 46%;
+    --custom-100-hsl: 207, 40%, 46%;
+    --custom-50-hsl: 198, 100%, 97%;
+
     --blue-900: hsl(var(--blue-900-hsl));
     --blue-800: hsl(var(--blue-800-hsl));
     --blue-700: hsl(var(--blue-700-hsl));
@@ -185,6 +196,17 @@ $btn-link-hover-color:        var(--#{$prefix}link-hover-color);
     --emerald-100: hsl(var(--emerald-100-hsl));
     --emerald-50: hsl(var(--emerald-50-hsl));
 
+    --custom-900: hsl(var(--custom-900-hsl));
+    --custom-800: hsl(var(--custom-800-hsl));
+    --custom-700: hsl(var(--custom-700-hsl));
+    --custom-600: hsl(var(--custom-600-hsl));
+    --custom-500: hsl(var(--custom-500-hsl));
+    --custom-400: hsl(var(--custom-400-hsl));
+    --custom-300: hsl(var(--custom-300-hsl));
+    --custom-200: hsl(var(--custom-200-hsl));
+    --custom-100: hsl(var(--custom-100-hsl));
+    --custom-50: hsl(var(--custom-50-hsl));
+
     --blue: var(--blue-500);
     --green: var(--green-500);
     --red: var(--red-500);
@@ -193,6 +215,7 @@ $btn-link-hover-color:        var(--#{$prefix}link-hover-color);
     --cardinal: var(--cardinal-500);
     --magenta: var(--magenta-500);
     --emerald: var(--emerald-500);
+    --custom: var(--custom-500);
 
     --secondary: var(--gray-600);
     --success: var(--green);
