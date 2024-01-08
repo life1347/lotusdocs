@@ -1,0 +1,31 @@
+{{ $text := (.Get "text") }}
+{{ $class := (.Get "class") }}
+{{ $inner := (.Inner | markdownify ) }}
+{{ $params := .Params }}
+
+{{ with .Inner }}
+  {{ $data := split . " " }}
+  <!-- Get the heading level, heading text, and anchorized id -->
+  {{ $htype := chomp (delimit (first 1 $data) " ") }}
+  {{ $hval := delimit (after 1 $data) " " }}
+  {{ $hid := anchorize $hval }}
+
+  <!-- Attempt 1: Construct new markdown, making the heading a link -->
+  <!-- {{ print $htype " [" $hval "](#" $hid ")" | $.Page.RenderString }} -->
+  <!-- {{ print $htype " [" $hval "](#" $hid ")" | markdownify }} -->
+  <!-- This fails as anchorized id mismatches constructed a tag -->
+
+  <!-- Attempt 2: Manual anchor id on heading and link -->
+  {{ $hlen := math.Sub (len $htype) 1 }}
+  {{ $stag := print "<h" $hlen " id=\"" $hid "\">" }}
+  {{ $etag := print "</h" $hlen ">" }}
+  {{ print $stag | safeHTML }}
+    {{ $hval }}
+    <a href="#{{ $hid }}" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a>
+    {{ range $s := $params }}
+      {{ $badge := (strings.Split $s ",") }}
+      <span class="badge bg-default fs-6 mb-1 align-middle {{ index $badge 1 }}" ><span>{{ index $badge 0 }}</span></span>
+    {{ end }}
+  {{ print $etag  | safeHTML}}
+{{ end }}
+
