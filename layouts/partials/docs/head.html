@@ -39,7 +39,7 @@
     {{ end -}}
     <!-- FlexSearch -->
     {{ if or (not (isset .Site.Params.flexsearch "enabled")) (eq .Site.Params.flexsearch.enabled true) -}}
-        {{ if and (.Site.Params.docsearch.appID) (.Site.Params.docsearch.apiKey) -}}
+        {{ if .Site.Params.docsearch.enabled -}}
         {{ else }}
             {{ $flexSearch := resources.Get (printf "/%s/%s" ($.Scratch.Get "pathName") "js/flexsearch.bundle.js") }}
             {{- if not .Site.IsServer }}

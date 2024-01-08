@@ -25,7 +25,7 @@ $code-block-padding-top: {{ if eq .Site.Params.docs.prism true -}}0{{ else }}1.2
 @import "../../scss/bootstrap/bootstrap";
 @import "variables";
 
-{{ if and (.Site.Params.docsearch.appID) (.Site.Params.docsearch.apiKey) -}}
+{{ if .Site.Params.docsearch.enabled -}}
 @import "custom/plugins/docsearch/style";
 {{ end }}
 

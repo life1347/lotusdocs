@@ -4,7 +4,7 @@
 
 {{ $slice := slice $dayjs $relativeTime $app -}}
 
-{{ if and (.Site.Params.docsearch.appID) (.Site.Params.docsearch.apiKey) -}}
+{{ if .Site.Params.docsearch.enabled -}}
     {{ $docsearch := resources.Get (printf "/%s/%s" ($.Scratch.Get "pathName") "js/docsearch.min.js") }}
     {{ $slice = $slice | append $docsearch -}}
 {{ end }}
