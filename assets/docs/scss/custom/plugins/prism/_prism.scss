@@ -10,7 +10,8 @@ code {
     color: var(--text-default);
 }
 
-.docs-content .main-content pre {
+.docs-content .main-content .prism-codeblock pre,
+.docs-content .main-content .prism-shortcode pre {
     background-color: var(--prism-code-bg) !important;
 }
 
