@@ -2,7 +2,7 @@
 <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-brand">
         <a href='{{ relLangURL .Site.Params.Docs.PathName }}' aria-label="HomePage" alt="HomePage">
-            {{ with resources.Get "images/logo.svg" }}
+            {{ with resources.Get .Site.Params.logo }}
                 {{ .Content | safeHTML }}
             {{ end }}
         </a>

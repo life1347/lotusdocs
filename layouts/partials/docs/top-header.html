@@ -4,12 +4,12 @@
         <div class="d-flex align-items-center">
             <a href='{{ with .Site.Params.docs.logoLinkURL }}{{ . }}{{ else }}{{ relLangURL "" }}{{ end }}' class="logo-icon me-3" aria-label="HomePage" alt="HomePage">
                 <div class="small">
-                    {{ with resources.Get "images/mark.svg" }}
+                    {{ with resources.Get .Site.Params.logoIcon }}
                             {{ .Content | safeHTML }}
                     {{ end }}
                 </div>
                 <div class="big">
-                    {{ with resources.Get "images/logo.svg" }}
+                    {{ with resources.Get .Site.Params.logo }}
                             {{ .Content | safeHTML }}
                     {{ end }}
                 </div>
