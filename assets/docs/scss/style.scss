@@ -76,3 +76,8 @@ $code-block-padding-top: {{ if eq .Site.Params.docs.prism true -}}0{{ else }}1.2
 .dropdown-item {
    text-align: left !important;
 }
+
+details summary {
+   margin-bottom: 1rem;
+   color: gray;
+}
