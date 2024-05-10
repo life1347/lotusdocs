@@ -43,9 +43,6 @@
         {{ else }}
             {{ $flexSearch := resources.Get (printf "/%s/%s" ($.Scratch.Get "pathName") "js/flexsearch.bundle.js") }}
             {{- if not .Site.IsServer }}
-                {{ $flexSearch := $flexSearch | minify | fingerprint "sha384" }}
-                <script type="text/javascript" src="{{ $flexSearch.Permalink }}" integrity="{{ $flexSearch.Data.Integrity }}" crossorigin="anonymous"></script>
-                {{ else }}
                 <script type="text/javascript" src="{{ $flexSearch.Permalink }}"></script>
             {{ end }}
         {{ end }}
@@ -62,7 +59,7 @@
     {{- if hugo.IsProduction }}
         {{- $style = $style | minify | fingerprint "sha384" }}
     {{- end -}}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $style.Data.Integrity }}"{{ end -}} crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
     {{ range .Site.Params.docCustomCss -}}
         <link rel="stylesheet" href="{{ . | absURL }}"/>
     {{- end }}
@@ -83,7 +80,7 @@
     {{- if hugo.IsProduction }}
         {{- $katexCSS = $katexCSS | minify | fingerprint "sha384" }}
     {{- end -}}
-    <link rel="stylesheet" href="{{ $katexCSS.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $katexCSS.Data.Integrity }}"{{ end -}} crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ $katexCSS.RelPermalink }}">
     {{- end -}}
     <!-- Katex JS -->
     {{- if .Params.katex -}}
@@ -93,8 +90,8 @@
         {{ $katex = $katex | minify | fingerprint "sha384" }}
         {{ $katexAutoRender = $katexAutoRender | minify | fingerprint "sha384" }}
     {{- end -}}
-    <script src="{{ $katex.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $katex.Data.Integrity }}"{{ end -}} defer></script>
-    <script src="{{ $katexAutoRender.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $katexAutoRender.Data.Integrity }}"{{ end -}} defer></script>
+    <script src="{{ $katex.RelPermalink }}" defer></script>
+    <script src="{{ $katexAutoRender.RelPermalink }}" defer></script>
     {{ end -}}
 
     <!-- Katex Config -->

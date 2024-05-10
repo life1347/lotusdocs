@@ -25,7 +25,7 @@
     {{- if hugo.IsProduction }}
         {{- $style = $style | minify | fingerprint "sha384" }}
     {{- end -}}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $style.Data.Integrity }}"{{ end -}}/>
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
     {{ range .Site.Params.customCss -}}
         <link rel="stylesheet" href="{{ . | absURL }}"/>
     {{- end }}
@@ -38,7 +38,7 @@
     {{ if hugo.IsProduction }}
         {{ $js = $js | fingerprint "sha384" }}
     {{ end }}
-    <script src="{{ $js.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end -}} defer></script>
+    <script src="{{ $js.RelPermalink }}" defer></script>
 
     <!-- Custom JS -->
     {{ range .Site.Params.customJs -}}
@@ -48,13 +48,8 @@
     <!-- Image Compare Viewer -->
     {{ if ($.Scratch.Get "image_compare_enabled") }}
         {{ $imagecompare := resources.Get "js/image-compare-viewer.min.js" }}
-        {{- if not .Site.IsServer }}
-            {{- $js := (slice $imagecompare) | resources.Concat "/js/image-compare.js" | minify | fingerprint "sha384" }}
-            <script type="text/javascript" src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}"></script>
-        {{- else }}
-            {{- $js := (slice $imagecompare) | resources.Concat "/js/image-compare.js" }}
-            <script type="text/javascript" src="{{ $js.Permalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }}></script>
-        {{- end }}
+        {{- $js := (slice $imagecompare) | resources.Concat "/js/image-compare.js" }}
+        <script type="text/javascript" src="{{ $js.Permalink }}"></script>
     {{- end }}
     <!-- Plausible Analytics Config -->
     {{- if not .Site.IsServer }}
